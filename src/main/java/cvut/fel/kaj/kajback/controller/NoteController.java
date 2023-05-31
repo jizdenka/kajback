@@ -2,6 +2,7 @@ package cvut.fel.kaj.kajback.controller;
 
 
 import cvut.fel.kaj.kajback.model.Note;
+import cvut.fel.kaj.kajback.model.NoteDTO;
 import cvut.fel.kaj.kajback.service.NoteService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,13 +31,9 @@ public class NoteController
 
     @PostMapping
     @CrossOrigin(origins = "http://127.0.0.1:5500")
-    public ResponseEntity<String> saveNotes(@RequestBody List<Note> notes)
+    public ResponseEntity<String> saveNotes(@RequestBody List<NoteDTO> notes)
     {
         System.out.println("Got here");
-        System.out.println(notes.get(0).getText());
-        System.out.println(notes.get(0).getUrgency());
-        System.out.println(notes.get(1).getText());
-        System.out.println(notes.get(1).getUrgency());
         noteService.pushAll(notes);
         return new ResponseEntity<>("Task is created successfully", HttpStatus.CREATED);
     }
