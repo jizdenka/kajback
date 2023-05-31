@@ -18,7 +18,7 @@ public class Note
 
     @Column(nullable = false, name = "name")
     private String header;
-    private LocalDateTime time;
+    private String time;
     private boolean urgency = false;
 
 
@@ -46,11 +46,19 @@ public class Note
         this.header = header;
     }
 
-    public LocalDateTime getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(LocalDateTime time) {
+    public void setTime(String time) {
         this.time = time;
+    }
+
+    public boolean getUrgency() {
+        return urgency;
+    }
+
+    public void setUrgency(boolean urgency) {
+        this.urgency = urgency;
     }
 }

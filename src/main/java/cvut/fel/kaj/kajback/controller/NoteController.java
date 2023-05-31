@@ -33,6 +33,10 @@ public class NoteController
     public ResponseEntity<String> saveNotes(@RequestBody List<Note> notes)
     {
         System.out.println("Got here");
+        System.out.println(notes.get(0).getText());
+        System.out.println(notes.get(0).getUrgency());
+        System.out.println(notes.get(1).getText());
+        System.out.println(notes.get(1).getUrgency());
         noteService.pushAll(notes);
         return new ResponseEntity<>("Task is created successfully", HttpStatus.CREATED);
     }
